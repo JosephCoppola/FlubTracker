@@ -1,7 +1,7 @@
 var express = require('express');
 var path = require('path');
 const app = express();
-const port = 3000;
+const port =  process.env.PORT || process.env.NODE_PORT || 3000;
 
 var router = require('./router.js');
 
