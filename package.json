@@ -5,11 +5,12 @@
   "homepage": "",
   "private": true,
   "scripts": {
-    "start": "ionic-app-scripts serve",
+    "start": "ionic-app-scripts build && node nodeServer/main.js",
+    "serve": "ionic-app-scripts serve",
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
-    "nodeStart": "ionic-app-scripts build && node nodeServer/main.js"
+    "nodeStart": "node nodeServer/main.js"
   },
   "dependencies": {
     "@angular/animations": "5.2.11",
