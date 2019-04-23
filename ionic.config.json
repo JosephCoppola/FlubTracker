@@ -1,5 +1,7 @@
 {
-  "name": "flubTracker",
-  "integrations": {},
+  "name": "flub-tracker",
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }
