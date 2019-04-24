@@ -11,5 +11,37 @@
 </ion-header>
 
 <ion-content padding>
-
+  <div id="playerList">
+    <ion-list class="playerCard" *ngFor="let player of stats.players">
+      <ion-item>
+        <div class="nameHeader">
+          <ion-icon name="person"></ion-icon>
+          <span>
+            {{player.name}}
+          </span>
+        </div>
+      </ion-item>
+      
+      <ion-item>
+        <ion-icon name="podium"></ion-icon>
+        <span>
+          Matches Played: {{player.totalMatches}}
+        </span>
+      </ion-item>
+      
+      <ion-item>
+        <ion-icon name="trophy"></ion-icon>
+        <span>
+          Matches Won: {{player.matchesWon}}
+        </span>
+      </ion-item>
+      
+      <ion-item>
+        <ion-icon name="flag"></ion-icon>
+        <span>
+          Flubs: {{player.flubs}}
+        </span>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>
