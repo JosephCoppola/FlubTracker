@@ -3,14 +3,11 @@ var models = require('../models');
 var Player = models.Player;
 
 var createPlayer = (req, res) => {
-  console.log(req)
-  
   var playerData = {
     name: req.body.name
   };
   
   var newPlayer = new Player.PlayerModel(playerData);
-  console.log(newPlayer);
   
   newPlayer.save((err) => {
     if(err) {
@@ -23,4 +20,34 @@ var createPlayer = (req, res) => {
   });
 };
 
+var updateMatchWon = (req, res) => {
+  var player = req.body.name;
+  var matchesWon = req.body.matchesWon;
+  
+  Player.PlayerModel.findPlayer(player, (err, record) => {
+    if (record) {
+      record.matchesWon = matchesWon;
+      record.save();
+      
+      return res.status(200).json({});
+    }
+    else {
+      return res.status(400).json({error:"User not found"});
+    }
+  });
+};
+
+var updateStats = (req, res) => {
+  return res.status(200).json({});
+};
+
+var getAllPlayers = (req, res) => {
+  Player.PlayerModel.find({}).exec((err, docs) => {
+    return res.status(200).json({players: docs});
+  });
+};
+
 module.exports.createPlayer = createPlayer;
+module.exports.updateMatchWon = updateMatchWon;
+module.exports.updateStats = updateStats;
+module.exports.getAllPlayers = getAllPlayers;

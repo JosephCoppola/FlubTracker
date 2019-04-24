@@ -7,6 +7,9 @@ var router = (app) => {
   });
   
   app.post("/createPlayer", controllers.Player.createPlayer);
+  app.post("/updateMatchWon", controllers.Player.updateMatchWon);
+  app.post("/updateStats", controllers.Player.updateStats);
+  app.get("/getAllPlayers", controllers.Player.getAllPlayers);
 };
 
 module.exports = router;

@@ -7,7 +7,7 @@ const app = express();
 const port =  process.env.PORT || process.env.NODE_PORT || 3000;
 const dbURL = process.env.MONGODB_URI;
 
-var db = mongoose.connect(dbURL, (err) => {
+var db = mongoose.connect(dbURL, {useNewUrlParser: true}, (err) => {
   if(err) {
     console.log("Failed to connect to mongo db");
     throw err;
