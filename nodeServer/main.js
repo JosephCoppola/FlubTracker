@@ -5,7 +5,7 @@ var router = require('./router.js');
 var bodyParser = require('body-parser');
 const app = express();
 const port =  process.env.PORT || process.env.NODE_PORT || 3000;
-const dbURL = process.env.MONGODB_URI;
+const dbURL = process.env.MONGODB_URI || "mongodb://heroku_q5np6053:phsb72v4nbm9117ictthgndkf7@ds145926.mlab.com:45926/heroku_q5np6053";
 
 var db = mongoose.connect(dbURL, {useNewUrlParser: true}, (err) => {
   if(err) {
