@@ -17,5 +17,13 @@ export class PlayerStatsComponent {
 
   constructor() {
   }
-
+  
+  getPlayerWinPercentage() {
+    if(this.playerObj.matchesWon == 0) {
+      return "0%";
+    }
+    else {
+      return Math.floor((this.playerObj.matchesWon / this.playerObj.totalMatches) * 100) + "%";
+    }
+  }
 }

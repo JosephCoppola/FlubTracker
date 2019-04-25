@@ -14,8 +14,7 @@ export class HomePage {
   
   onNewPlayerClicked() {
       let alert = this.alertCtrl.create({
-          title: "New Player",
-          message: "Input the new player's name",
+          title: "New Player Name",
           inputs: [
             {
               name: 'name',
