@@ -1,0 +1,35 @@
+<!-- Generated template for the PlayerStatsComponent component -->
+<ion-list class="playerCard">
+  <ion-item>
+    <div class="nameHeader">
+      <ion-icon name="person" class="nameIcon"></ion-icon>
+      <span>
+        {{playerObj.name}}
+      </span>
+      <button ion-button class="editPlayerBtn">
+        <ion-icon slot="icon-only" name="create"></ion-icon>
+      </button>
+    </div>
+  </ion-item>
+  
+  <ion-item>
+    <ion-icon name="podium"></ion-icon>
+    <span>
+      Matches Played: {{playerObj.totalMatches}}
+    </span>
+  </ion-item>
+  
+  <ion-item>
+    <ion-icon name="trophy"></ion-icon>
+    <span>
+      Matches Won: {{playerObj.matchesWon}}
+    </span>
+  </ion-item>
+  
+  <ion-item>
+    <ion-icon name="flag"></ion-icon>
+    <span>
+      Flubs: {{playerObj.flubs}}
+    </span>
+  </ion-item>
+</ion-list>

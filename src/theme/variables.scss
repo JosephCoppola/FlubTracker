@@ -118,3 +118,13 @@ $colors: (
 .tabs-ios .tab-button:hover:not(.disable-hover), .tabs-ios .tab-button[aria-selected=true], .tabs-md .tab-button[aria-selected=true] {
   color: #488aff !important;
 }
+
+.addPlayerSuccess .toast-wrapper {
+  background: #017d01 !important;
+  text-align: center;
+}
+
+.addPlayerSuccess.toast-md .toast-wrapper {
+  width: 90%;
+  border-radius: 5px;
+}

@@ -11,6 +11,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { PlayersPage } from '../pages/players/players';
 import { StatsProvider } from '../providers/stats/stats';
 
+import { ComponentsModule } from '../components/components.module';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -21,7 +23,8 @@ import { StatsProvider } from '../providers/stats/stats';
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    ComponentsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

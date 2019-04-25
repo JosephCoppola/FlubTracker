@@ -1,0 +1,17 @@
+player-stats {
+  .nameHeader {
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .nameIcon {
+    margin-left: auto;
+    margin-right: 5px;
+  }
+  
+  .editPlayerBtn {
+    margin-left: auto;
+  }
+}

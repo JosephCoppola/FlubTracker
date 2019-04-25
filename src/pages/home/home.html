@@ -11,7 +11,7 @@
     Flub Ball Tracker used to help track stats of players over the season. Go to the players tab to view and edit player stats. 
   </p>
   <div id="mainPageActions">
-    <button class="mainPageBtn" ion-button icon-left expand="block" color="primary">
+    <button class="mainPageBtn" (click)="onNewPlayerClicked()" ion-button icon-left expand="block" color="primary">
       <ion-icon name="person-add"></ion-icon>
       <span>Add New Player</span>
     </button>

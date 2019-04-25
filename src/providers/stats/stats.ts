@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { ToastController } from 'ionic-angular';
 
 /*
   Generated class for the StatsProvider provider.
@@ -13,7 +14,7 @@ export class StatsProvider {
 
   players: any;
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, public toastController: ToastController) {
 
   }
   
@@ -24,7 +25,34 @@ export class StatsProvider {
   updatePlayers() {
     this.http.get("/getAllPlayers").subscribe(data => {
       this.players = data['players'];
-      console.log(this.players);
     });  
+  }
+  
+  createNewPlayer(playerName : string) {
+    let headers = {headers: {
+      'Content-Type': 'application/json'
+    }};
+    
+    let postData = {
+      "name": playerName
+    };
+    
+    this.http.post("/createPlayer", postData, headers).subscribe(data => {
+      console.log(data);
+      if(data['error'] == "Success") {
+        const toast = this.toastController.create({
+          message: playerName + ' has been successfully created!',
+          position: 'middle',
+          cssClass: 'addPlayerSuccess',
+          duration: 3000
+        });
+        toast.present();
+      }
+      else {
+        
+      }
+    }, error => {
+      console.log(error);
+    });
   }
 }
