@@ -5,7 +5,7 @@ var router = require('./router.js');
 var bodyParser = require('body-parser');
 const app = express();
 const port =  process.env.PORT || process.env.NODE_PORT || 3000;
-const dbURL = process.env.MONGODB_URI";
+const dbURL = process.env.MONGODB_URI;
 
 var db = mongoose.connect(dbURL, {useNewUrlParser: true}, (err) => {
   if(err) {
