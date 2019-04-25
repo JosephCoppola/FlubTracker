@@ -42,7 +42,7 @@ export class StatsProvider {
       if(data['error'] == "Success") {
         const toast = this.toastController.create({
           message: playerName + ' has been successfully created!',
-          position: 'middle',
+          position: 'top',
           cssClass: 'addPlayerSuccess',
           duration: 3000
         });
