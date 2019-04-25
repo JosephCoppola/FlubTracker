@@ -1,4 +1,8 @@
 import { Component, Input } from '@angular/core';
+import { ModalController } from 'ionic-angular';
+
+import { EditStatsModalComponent } from '../edit-stats-modal/edit-stats-modal';
+
 
 /**
  * Generated class for the PlayerStatsComponent component.
@@ -15,7 +19,7 @@ export class PlayerStatsComponent {
   @Input()
   playerObj : any;
 
-  constructor() {
+  constructor(public modalController: ModalController) {
   }
   
   getPlayerWinPercentage() {
@@ -25,5 +29,11 @@ export class PlayerStatsComponent {
     else {
       return Math.floor((this.playerObj.matchesWon / this.playerObj.totalMatches) * 100) + "%";
     }
+  }
+  
+  onEditPlayerClicked() {
+    const modal = this.modalController.create(EditStatsModalComponent, { player: this.playerObj });
+    
+    modal.present();
   }
 }

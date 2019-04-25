@@ -6,7 +6,7 @@
       <span>
         {{playerObj.name}}
       </span>
-      <button ion-button class="editPlayerBtn">
+      <button (click)="onEditPlayerClicked()" ion-button class="editPlayerBtn">
         <ion-icon slot="icon-only" name="create"></ion-icon>
       </button>
     </div>

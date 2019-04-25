@@ -1,0 +1,57 @@
+edit-stats-modal {
+  .editPlayer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #292828;
+    padding: 20px;
+  }
+  
+  .playerInput {
+    display: flex;
+    justify-content: center;
+    color: white;
+    flex-direction: column;
+    
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    ion-input {
+      border: black 2px solid;
+      background-color: #ffffff;
+      color: black;
+    }
+  }
+  
+  .editLabel {
+    margin-left: 5px
+  }
+  
+  #modalBtns {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+  }
+  
+  .editHeader {
+    text-align: center;
+    color: white;
+    
+    h2 {
+      margin-top: 0px;
+    }
+  }
+  
+  .editGrid {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    
+    .playerInput {
+      width: 45%;
+    }
+  }
+}
