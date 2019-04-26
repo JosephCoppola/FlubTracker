@@ -4,6 +4,9 @@ var mongoose = require('mongoose');
 var router = require('./router.js');
 var bodyParser = require('body-parser');
 const app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
 const port =  process.env.PORT || process.env.NODE_PORT || 3000;
 const dbURL = process.env.MONGODB_URI;
 
@@ -22,4 +25,14 @@ app.use(bodyParser.json());
 
 router(app);
 
-app.listen(port, () => console.log(`App listening on port ${port}!`))
+http.listen(port, () => {
+  console.log(`App listening on port ${port}!`);
+});
+
+io.on('connection', (socket) => {
+  console.log("Socket connected");
+  
+  socket.on('disconnect', function() {
+    console.log("Socket disconnected");
+  });
+});

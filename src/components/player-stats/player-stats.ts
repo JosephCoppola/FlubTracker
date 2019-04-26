@@ -20,6 +20,7 @@ export class PlayerStatsComponent {
   playerObj : any;
 
   constructor(public modalController: ModalController) {
+
   }
   
   getPlayerWinPercentage() {

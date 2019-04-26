@@ -12,6 +12,8 @@ import { PlayersPage } from '../pages/players/players';
 import { StatsProvider } from '../providers/stats/stats';
 
 import { ComponentsModule } from '../components/components.module';
+import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
+const config: SocketIoConfig = { url: 'https://flubtracker.herokuapp.com:3166', options: {} };
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { ComponentsModule } from '../components/components.module';
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
-    ComponentsModule
+    ComponentsModule,
+    SocketIoModule.forRoot(config)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
