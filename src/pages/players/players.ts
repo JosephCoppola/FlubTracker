@@ -19,10 +19,14 @@ export class PlayersPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public stats: StatsProvider,
               private socket: Socket) {
+                
+    socket.on('time', function(timeString) {
+      console.log(timeString);
+    });
   }
   
   ionViewDidLeave() {
-    this.socket.disconnect();
+    //this.socket.disconnect();
   }
   
   ionViewDidEnter() {
