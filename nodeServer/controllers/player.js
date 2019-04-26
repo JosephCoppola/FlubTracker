@@ -37,7 +37,7 @@ var updateMatchWon = (req, res) => {
   });
 };
 
-var updateStats = (req, res) => {
+var updateStats = (req, res, io) => {
   var updatedStats = req.body;
   
   Player.PlayerModel.findPlayer(updatedStats._id, (err, record) => {
@@ -48,6 +48,8 @@ var updateStats = (req, res) => {
       record.name = updatedStats.name;
       
       record.save();
+      
+      io.emit('update');
       
       return res.status(200).json({error:"Success"});
     }

@@ -59,7 +59,6 @@ export class EditStatsModalComponent {
         
       }
       else {
-        this.stats.updatePlayers();
         this.viewCtrl.dismiss();
       }
     });

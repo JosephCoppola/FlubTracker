@@ -19,9 +19,10 @@ export class PlayersPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public stats: StatsProvider,
               private socket: Socket) {
-                
-    socket.on('time', function(timeString) {
-      console.log(timeString);
+    var _this = this;
+    socket.on('update', function() {
+      console.log("Recieved update");
+      _this.stats.updatePlayers();
     });
   }
   

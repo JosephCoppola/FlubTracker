@@ -23,7 +23,7 @@ var db = mongoose.connect(dbURL, {useNewUrlParser: true}, (err) => {
 app.use('/www', express.static(path.join(__dirname + '/../www')));
 app.use(bodyParser.json());
 
-router(app);
+router(app, io);
 
 http.listen(port, () => {
   console.log(`App listening on port ${port}!`);
