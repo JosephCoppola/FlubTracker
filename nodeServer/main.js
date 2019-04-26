@@ -32,8 +32,6 @@ http.listen(port, () => {
 io.on('connection', (socket) => {
   console.log("Socket connected");
   
-  setInterval(() => io.emit('time', new Date().toTimeString()), 5000);
-  
   socket.on('disconnect', function() {
     console.log("Socket disconnected");
   });
