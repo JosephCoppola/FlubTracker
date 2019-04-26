@@ -66,4 +66,10 @@ export class StatsProvider {
       console.log(error);
     });
   }
+  
+  getSocketPort(callback) {
+    this.http.get("/socketPort").subscribe(data => {
+      callback(data['port']);
+    });
+  }
 }

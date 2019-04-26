@@ -27,6 +27,14 @@ export class PlayersPage {
   
   ionViewDidEnter() {
     this.stats.updatePlayers();
-    this.socket.connect();
+    
+    this.stats.getSocketPort((port) => {
+      this.socket.ioSocket.io.opts.port = port.toString();
+      this.socket.ioSocket.io.engine.port = port.toString();
+      if(!this.socket.ioSocket.io.uri.includes(port.toString())) {
+        this.socket.ioSocket.io.uri += ":" + port.toString();  
+      }
+      this.socket.connect();
+    });
   }
 }

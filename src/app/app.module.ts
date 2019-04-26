@@ -13,7 +13,7 @@ import { StatsProvider } from '../providers/stats/stats';
 
 import { ComponentsModule } from '../components/components.module';
 import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
-const config: SocketIoConfig = { url: 'https://flubtracker.herokuapp.com:3166', options: {} };
+const config: SocketIoConfig = { url: 'https://flubtracker.herokuapp.com', options: {} };
 
 @NgModule({
   declarations: [
