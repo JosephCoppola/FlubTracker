@@ -36,9 +36,9 @@ PlayerSchema.methods.toAPI = () => {
   }
 };
 
-PlayerSchema.statics.findPlayer = (playerName, callback) => {
+PlayerSchema.statics.findPlayer = (playerId, callback) => {
   var search = {
-    name: playerName
+    _id: playerId
   };
   
   return PlayerModel.findOne(search).exec(callback);

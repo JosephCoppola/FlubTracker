@@ -38,7 +38,23 @@ var updateMatchWon = (req, res) => {
 };
 
 var updateStats = (req, res) => {
-  return res.status(200).json({});
+  var updatedStats = req.body;
+  
+  Player.PlayerModel.findPlayer(updatedStats._id, (err, record) => {
+    if(record) {
+      record.matchesWon = updatedStats.matchesWon;
+      record.totalMatches = updatedStats.totalMatches;
+      record.flubs = updatedStats.flubs;
+      record.name = updatedStats.name;
+      
+      record.save();
+      
+      return res.status(200).json({error:"Success"});
+    }
+    else {
+      return res.status(400).json({error:"User not found"});
+    }
+  });
 };
 
 var getAllPlayers = (req, res) => {

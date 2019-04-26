@@ -18,8 +18,19 @@ export class StatsProvider {
 
   }
   
-  updateStats() {
-  
+  updateStats(newPlayerObj, callback) {
+    let headers = {headers: {
+      'Content-Type': 'application/json'
+    }};
+    
+    this.http.post("/updateStats", newPlayerObj, headers).subscribe(data => {
+      if(data['error'] == "Success") {
+        callback();
+      }
+      else{
+        callback(data['error']);
+      }
+    });
   }
   
   updatePlayers() {

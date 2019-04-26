@@ -4,11 +4,13 @@
     <h2>Editing {{player.name}}</h2>
   </div>
   <div class="playerInput">
-    <div>
+    <div style="font-size: 20px;">
       <ion-icon name="person" class="nameIcon"></ion-icon>
-      <ion-label class="editLabel">Name:</ion-label>
+      <ion-label class="editLabel">Name: {{name}}</ion-label>
+      <button (click) = "onRenameClicked()" ion-button expand="block" color="primary">
+        <span>Rename</span>
+      </button>
     </div>
-    <ion-input [(ngModel)]="name" type="text"></ion-input>
   </div>
   
   <div class="editGrid">
@@ -17,7 +19,15 @@
         <ion-icon name="podium"></ion-icon>
         <ion-label class="editLabel">Total Matches:</ion-label>
       </div>
-      <ion-input [(ngModel)]="totalMatches" type="number"></ion-input>
+      <div class="statAdjuster">
+        <button [disabled]="totalMatches == 0" (click)="totalMatches = subtractStat(totalMatches)" ion-button expand="block" color="danger">
+          <ion-icon slot="icon-only" name="remove"></ion-icon>
+        </button>
+        <ion-label>{{totalMatches}}</ion-label>
+        <button class="" (click)="totalMatches = addStat(totalMatches)" ion-button expand="block" color="primary">
+          <ion-icon slot="icon-only" name="add"></ion-icon>
+        </button>
+      </div>
     </div>
     
     <div class="playerInput">
@@ -25,7 +35,15 @@
         <ion-icon name="trophy"></ion-icon>
         <ion-label class="editLabel">Matches Won:</ion-label>
       </div>
-      <ion-input [(ngModel)]="matchesWon" type="number"></ion-input>
+      <div class="statAdjuster">
+        <button [disabled]="matchesWon == 0" (click)="matchesWon = subtractStat(matchesWon)" ion-button expand="block" color="danger">
+          <ion-icon slot="icon-only" name="remove"></ion-icon>
+        </button>
+        <ion-label>{{matchesWon}}</ion-label>
+        <button class="" (click)="matchesWon = addStat(matchesWon)" ion-button expand="block" color="primary">
+          <ion-icon slot="icon-only" name="add"></ion-icon>
+        </button>
+      </div>
     </div>
     
     <div class="playerInput">
@@ -33,15 +51,23 @@
         <ion-icon name="flag"></ion-icon>
         <ion-label class="editLabel">Total Flubs:</ion-label>
       </div>
-      <ion-input [(ngModel)]="flubs" type="number"></ion-input>
+      <div class="statAdjuster">
+        <button [disabled]="flubs == 0" (click)="flubs = subtractStat(flubs)" ion-button expand="block" color="danger">
+          <ion-icon slot="icon-only" name="remove"></ion-icon>
+        </button>
+        <ion-label>{{flubs}}</ion-label>
+        <button class="" (click)="flubs = addStat(flubs)" ion-button expand="block" color="primary">
+          <ion-icon slot="icon-only" name="add"></ion-icon>
+        </button>
+      </div>
     </div>
   </div>
   
   <div id="modalBtns">
-    <button class="mainPageBtn" ion-button expand="block" color="primary">
+    <button (click)="onConfirm()" ion-button expand="block" color="primary">
       <span>Confirm Changes</span>
     </button>
-    <button class="mainPageBtn" (click)="onCancel()" ion-button expand="block" color="danger">
+    <button (click)="onCancel()" ion-button expand="block" color="danger">
       <span>Cancel</span>
     </button>
   </div>
