@@ -1,9 +1,15 @@
 player-stats {
   .nameHeader {
-    font-size: 3rem;
+    font-size: 2.7rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    span {
+      text-overflow: ellipsis;
+      max-width: 80%;
+      overflow: hidden;
+    }
   }
   
   .nameIcon {
