@@ -32,14 +32,17 @@ export class EditStatsModalComponent {
   onConfirm() {
     if(this.matchesWon > this.totalMatches) {
       let alert = this.alertCtrl.create({
-        title: "Matches won can't be greater than total matches",
+        title: "Stat Error",
+        message: "Matches won can't be greater than total matches",
         buttons: [
           {
-            text: 'Cancel',
+            text: 'Ok',
             role: 'cancel'
           }
         ]
       });
+      
+      alert.present();
       return;
     }
     
