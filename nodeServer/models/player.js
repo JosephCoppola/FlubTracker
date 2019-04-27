@@ -24,6 +24,11 @@ var PlayerSchema = new mongoose.Schema({
     default: 0
   },
   
+  aces: {
+    type: Number,
+    default: 0
+  },
+  
   createdDate: {
     type: Date,
     default: Date.now

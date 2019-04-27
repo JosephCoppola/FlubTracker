@@ -5,7 +5,7 @@ player-stats {
     align-items: center;
     justify-content: center;
     
-    span {
+    span:not(.button-inner) {
       text-overflow: ellipsis;
       max-width: 80%;
       overflow: hidden;

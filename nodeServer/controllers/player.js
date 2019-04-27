@@ -46,6 +46,7 @@ var updateStats = (req, res, io) => {
       record.totalMatches = updatedStats.totalMatches;
       record.flubs = updatedStats.flubs;
       record.name = updatedStats.name;
+      record.aces = updatedStats.aces;
       
       record.save();
       
@@ -60,7 +61,7 @@ var updateStats = (req, res, io) => {
 };
 
 var getAllPlayers = (req, res) => {
-  Player.PlayerModel.find({}).exec((err, docs) => {
+  Player.PlayerModel.find({}).sort("name").exec((err, docs) => {
     return res.status(200).json({players: docs});
   });
 };

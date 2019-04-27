@@ -19,6 +19,7 @@ export class EditStatsModalComponent {
   matchesWon : number; 
   totalMatches : number;
   flubs : number;
+  aces : number;
 
   constructor(public navParams : NavParams, public viewCtrl: ViewController, 
               public alertCtrl: AlertController, public stats: StatsProvider) {
@@ -27,6 +28,7 @@ export class EditStatsModalComponent {
     this.matchesWon = this.player.matchesWon;
     this.totalMatches = this.player.totalMatches;
     this.flubs = this.player.flubs;
+    this.aces = this.player.aces;
   }
   
   onConfirm() {
@@ -51,6 +53,7 @@ export class EditStatsModalComponent {
       "matchesWon": this.matchesWon,
       "totalMatches": this.totalMatches,
       "flubs": this.flubs,
+      "aces": this.aces,
       "name": this.name
     }
     
@@ -59,6 +62,7 @@ export class EditStatsModalComponent {
         
       }
       else {
+        this.stats.updatePlayers();
         this.viewCtrl.dismiss();
       }
     });
