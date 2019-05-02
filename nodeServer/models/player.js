@@ -29,6 +29,21 @@ var PlayerSchema = new mongoose.Schema({
     default: 0
   },
   
+  points: {
+    type: Number,
+    default: 0
+  },
+  
+  doubleFlubs: {
+    type: Number,
+    default: 0
+  },
+  
+  penalties: {
+    type: Number,
+    default: 0
+  },
+  
   createdDate: {
     type: Date,
     default: Date.now

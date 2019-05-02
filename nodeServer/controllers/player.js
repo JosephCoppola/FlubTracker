@@ -47,6 +47,9 @@ var updateStats = (req, res, io) => {
       record.flubs = updatedStats.flubs;
       record.name = updatedStats.name;
       record.aces = updatedStats.aces;
+      record.points = updatedStats.points;
+      record.doubleFlubs = updatedStats.doubleFlubs;
+      record.penalties = updatedStats.penalties;
       
       record.save();
       

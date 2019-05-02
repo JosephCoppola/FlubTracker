@@ -20,6 +20,9 @@ export class EditStatsModalComponent {
   totalMatches : number;
   flubs : number;
   aces : number;
+  points : number;
+  doubleFlubs : number;
+  penalties : number;
 
   constructor(public navParams : NavParams, public viewCtrl: ViewController, 
               public alertCtrl: AlertController, public stats: StatsProvider) {
@@ -29,6 +32,9 @@ export class EditStatsModalComponent {
     this.totalMatches = this.player.totalMatches;
     this.flubs = this.player.flubs;
     this.aces = this.player.aces;
+    this.points = this.player.points;
+    this.doubleFlubs = this.player.doubleFlubs;
+    this.penalties = this.player.penalties;
   }
   
   onConfirm() {
@@ -54,7 +60,10 @@ export class EditStatsModalComponent {
       "totalMatches": this.totalMatches,
       "flubs": this.flubs,
       "aces": this.aces,
-      "name": this.name
+      "name": this.name,
+      "points": this.points,
+      "doubleFlubs": this.doubleFlubs,
+      "penalties": this.penalties
     }
     
     this.stats.updateStats(newPlayerStats, (err) => {
