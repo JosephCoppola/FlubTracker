@@ -80,6 +80,22 @@
     
     <div class="playerInput">
       <div>
+        <ion-icon name="star"></ion-icon>
+        <ion-label class="editLabel">Total Aces:</ion-label>
+      </div>
+      <div class="statAdjuster">
+        <button [disabled]="aces == 0" (click)="aces = subtractStat(aces)" ion-button expand="block" color="danger">
+          <ion-icon slot="icon-only" name="remove"></ion-icon>
+        </button>
+        <ion-label>{{aces}}</ion-label>
+        <button class="" (click)="aces = addStat(aces)" ion-button expand="block" color="primary">
+          <ion-icon slot="icon-only" name="add"></ion-icon>
+        </button>
+      </div>
+    </div>
+    
+    <div class="playerInput">
+      <div>
         <ion-icon name="bookmark"></ion-icon>
         <ion-label class="editLabel">Total Double Flubs:</ion-label>
       </div>
